@@ -76,11 +76,11 @@ class Formatter(object):
         if isinstance(number, str):
             number = float(number)
         _num = 100000000
-        if not number % 100 and 10000 <= number < _num:
+        if not number % 100 and 10000 <= abs(number) < _num:
             num = number / 10000
             num = int(num) if num == int(num) else num
             return f"{num}万"
-        if not number % 100000 and number >= _num:
+        if not number % 100000 and abs(number) >= _num:
             num = number / _num
             num = int(num) if num == int(num) else num
             return f"{num}亿"
